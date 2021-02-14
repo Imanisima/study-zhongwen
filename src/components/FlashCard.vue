@@ -5,12 +5,28 @@
     :style="{ cursor: flipped ? 'default' : 'pointer' }"
     title="Click anywhere to reveal"
   >
-    <div class="question"><slot name="question"></slot>{{ question }}</div>
 
     <div class="answer">
       <slot v-if="flipped" name="answer"></slot>
-      <p v-show="flipped">{{ answer }}</p>
-      <div v-show="!flipped" class="tip">Click to reveal answer</div>
+      <br />
+      <p v-show="flipped">
+        <span class="question">{{ question }}</span>
+        <v-spacer />
+
+        <span class="answer">{{ answer }} </span>
+        <v-img class="white--text align-end" height="55vh" :src="image">
+        </v-img>
+
+        <br />
+
+        <span class="tip"
+          >Ex:
+          <v-spacer />
+          <span class="notes">{{ notes }}</span>
+        </span>
+      </p>
+
+      <div v-show="!flipped" class="question">{{ question }}</div>
     </div>
 
     <div class="progress-bar">
@@ -19,7 +35,6 @@
         :style="{ width: '' + level / 0.11 + '%' }"
       >
         <v-progress-linear buffer-value="0" stream color="purple" />
-        <!-- <div class="progress-bar-label">{{ this.levelLabel }}</div> -->
       </div>
     </div>
 
@@ -31,7 +46,7 @@
         v-if="answered == null"
         v-on:click.stop="recall('forgot')"
         class="forgotbutton"
-        title="Reset practice frequency to every day"
+        title="Your guess was incorrect!"
       >
         Forgot <i class="mdi mdi-window-close" />
       </button>
@@ -40,6 +55,7 @@
         v-if="answered == null"
         v-on:click.stop="recall('recalled')"
         class="recalledbutton"
+        title="You guessed correct!"
       >
         Guessed Right <i class="mdi mdi-check" />
       </button>
@@ -61,6 +77,14 @@ export default {
     question: {
       type: String,
       required: true,
+    },
+    image: {
+      type: String,
+      required: false,
+    },
+    notes: {
+      type: String,
+      required: false,
     },
     answer: {
       type: String,
@@ -195,29 +219,30 @@ export default {
   -webkit-font-smoothing: antialiased;
 }
 
-.flashcard:hover{
+.flashcard:hover {
   border: 2px solid purple;
 }
 
 .question {
   padding: 12px;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 1.5em;
   border-bottom: 2px;
   border-bottom: 1px solid #f6f0ff;
   text-align: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  margin-top: -10px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   text-transform: uppercase;
   font-family: "Abel", sans-serif;
 }
 .answer {
   padding: 12px;
   background-color: #fcfaff;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 2em;
   text-align: center;
-  padding-top: 40px;
+  padding-top: 5px;
   padding-bottom: 40px;
   min-height: 200px;
   vertical-align: middle;
@@ -225,9 +250,15 @@ export default {
   font-family: "Abel", sans-serif;
 }
 .tip {
-  color: #bbb;
+  color: rgb(49, 48, 48);
   font-weight: normal;
 }
+.notes {
+  color: #242424;
+  font-weight: bold;
+  font-size: 2em;
+}
+
 .message {
   font-size: 14px;
   text-align: center;

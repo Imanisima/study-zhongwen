@@ -31,24 +31,24 @@ export default {
   data: () => ({
     cards: [
       {
-        title: "HSK 1",
-        desc: "test test test test",
-        src: "/images/book.jpg",
-        loc: "/Test",
+        title: "Zhuyin",
+        desc: "Zhuyin / Bopomofo / ㄅㄆㄇㄈ is a Mandarin phonetic system used primarily in Taiwan.",
+        src: "/images/home/sunset.jpg",
+        loc: "/Zhuyin",
         flex: 12,
       },
       {
-        title: "HSK 2",
-        desc: "test test test test",
-        src: "/images/book.jpg",
-        loc: "/Test",
+        title: "Vocabulary",
+        desc: "Vocabulary from TOCFL - Test of Chinese as a Foreign Language.",
+        src: "/images/home/out.jpg",
+        loc: "/Vocabulary",
         flex: 12,
       },
       {
-        title: "HSK 3",
-        desc: "test test test test",
-        src: "/images/book.jpg",
-        loc: "/Test",
+        title: "Sentence & Grammar",
+        desc: "Review grammar and sentence construction.",
+        src: "/images/home/city.jpg",
+        loc: "/Wiki",
         flex: 12,
       },
     ],
@@ -63,7 +63,7 @@ export default {
 }
 
 .card-title {
-  color: #242424;
+  color: #ffff;
   text-align: center;
   font-size: 50px;
   font-family: "Big Shoulders Stencil Text", cursive;

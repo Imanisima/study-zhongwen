@@ -4,7 +4,9 @@
         :key="card.qid"
         :qid="card.qid"
         :question="card.question"
+        :image="card.image"
         :answer="card.answer"
+        :notes="card.notes"
         @answered=onAnswered
         @flipped=onFlipped
         :flipped="card.flipped"
