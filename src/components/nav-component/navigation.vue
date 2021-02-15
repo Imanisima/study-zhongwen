@@ -26,7 +26,15 @@
         <router-link to="/" text>
           <span class="mr-2 enlarge">Home</span>
         </router-link>
-
+                <router-link to="/zhuyin" text>
+          <span class="mr-2 enlarge">Zhuyin</span>
+        </router-link>
+        <router-link to="/vocabulary" text>
+          <span class="mr-2 enlarge">Vocabulary</span>
+        </router-link>
+        <router-link to="/wiki" text>
+          <span class="mr-2 enlarge">GrammarWiki</span>
+        </router-link>
   </div>
 </v-app-bar>
 </div>
