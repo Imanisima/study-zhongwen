@@ -6,7 +6,9 @@
         :question="card.question"
         :image="card.image"
         :answer="card.answer"
-        :notes="card.notes"
+        :zhuyin="card.zhuyin"
+        :zhutext="card.zhutext"
+        :translation="card.translation"
         @answered=onAnswered
         @flipped=onFlipped
         :flipped="card.flipped"

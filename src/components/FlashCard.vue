@@ -13,16 +13,22 @@
         <span class="question">{{ question }}</span>
         <v-spacer />
 
+
+<!-- :zhuyin="card.zhuyin"
+        :tradtext="card.tradtext" -->
+
         <span class="answer">{{ answer }} </span>
-        <v-img class="white--text align-end" height="55vh" :src="image">
+        <v-img class="white--text align-end photo" :src="image" contain height="40vh">
         </v-img>
 
         <br />
 
-        <span class="tip"
-          >Ex:
+        <span class="tip">
           <v-spacer />
-          <span class="notes">{{ notes }}</span>
+          
+          <span class="notes">{{ zhuyin }}</span> <br>
+          <span class="tip">{{ zhutext }}</span> <br>
+          <span class="tip">{{ translation }}</span> <br>
         </span>
       </p>
 
@@ -78,11 +84,13 @@ export default {
       type: String,
       required: true,
     },
+
+    // answer-side
     image: {
       type: String,
       required: false,
     },
-    notes: {
+    translation: {
       type: String,
       required: false,
     },
@@ -90,6 +98,16 @@ export default {
       type: String,
       required: true,
     },
+    zhuyin: {
+      type: String,
+      required: false,
+    },
+    zhutext: {
+      type: String,
+      required: false,
+    },
+
+    // booleans and debugging
     flipped: {
       type: Boolean,
       required: true,
@@ -236,6 +254,12 @@ export default {
   text-transform: uppercase;
   font-family: "Abel", sans-serif;
 }
+
+.photo {
+  box-shadow: 3px 3px 20px rgb(238, 117, 117);
+  background-color: #ffff;
+}
+
 .answer {
   padding: 12px;
   background-color: #fcfaff;
@@ -249,9 +273,11 @@ export default {
   text-transform: capitalize;
   font-family: "Abel", sans-serif;
 }
+
 .tip {
   color: rgb(49, 48, 48);
   font-weight: normal;
+  text-transform: uppercase;
 }
 .notes {
   color: #242424;
